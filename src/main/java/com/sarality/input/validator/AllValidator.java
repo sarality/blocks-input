@@ -1,6 +1,9 @@
 package com.sarality.input.validator;
 
+import com.sarality.input.FieldValueProvider;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -12,9 +15,9 @@ public class AllValidator implements Validator {
 
   private final List<Validator> validatorList = new ArrayList<>();
 
-  public AllValidator(List<Validator> validatorList) {
-    if (validatorList != null) {
-      this.validatorList.addAll(validatorList);
+  public AllValidator(Validator... validators) {
+    if (validators != null) {
+      validatorList.addAll(Arrays.asList(validators));
     }
   }
 

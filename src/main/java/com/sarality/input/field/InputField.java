@@ -9,10 +9,6 @@ import android.app.Activity;
  */
 public interface InputField {
 
-  enum Type {
-
-  }
-
   int getFieldId();
 
   void init(Activity activity);
