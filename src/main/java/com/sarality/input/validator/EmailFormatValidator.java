@@ -2,6 +2,8 @@ package com.sarality.input.validator;
 
 import android.text.TextUtils;
 
+import com.sarality.input.FieldValueProvider;
+
 /**
  * A Validator that checks if the field value is a valid email address
  *

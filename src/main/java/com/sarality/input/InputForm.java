@@ -8,7 +8,6 @@ import com.sarality.input.field.EditTextField;
 import com.sarality.input.field.InputField;
 import com.sarality.input.field.InputType;
 import com.sarality.input.field.TextInputEditTextField;
-import com.sarality.input.validator.FieldValueProvider;
 import com.sarality.input.validator.Validator;
 
 import java.util.ArrayList;
@@ -53,11 +52,16 @@ public class InputForm {
   }
 
 
-  public void readValues(Activity activity) {
+  public FieldValueProvider readValues(Activity activity) {
     for (InputField field : fieldList) {
       field.init(activity);
       valueProvider.addValue(field.getFieldId(), field.extract(activity));
     }
+    return valueProvider;
+  }
+
+  public FieldValueProvider getFieldValueProvider() {
+    return valueProvider;
   }
 
   public boolean validate(Activity activity) {
@@ -76,6 +80,7 @@ public class InputForm {
       if (!validator.getValidator().isValid(valueProvider)) {
         isValid = false;
         displayError(activity, validator.getErrorMessage());
+        break;
       } else {
         resetError(activity, validator.getErrorMessage().getErrorRenderer());
       }

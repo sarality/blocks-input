@@ -2,6 +2,8 @@ package com.sarality.input.validator;
 
 import android.text.TextUtils;
 
+import com.sarality.input.FieldValueProvider;
+
 /**
  * Validator that checks if the value is not empty or null.
  *
